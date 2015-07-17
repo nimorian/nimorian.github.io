@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Github on Zzz...</title>
+    <link>http://localhost:1313/tags/github/</link>
+    <description>Recent content in Github on Zzz...</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <copyright>© 2015 Copyright Text</copyright>
+    <lastBuildDate>Wed, 15 Jul 2015 22:08:20 +0900</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/github/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Hugo&#43;GithubPagesなブログをmacで構築してみた</title>
+      <link>http://localhost:1313/2015/07/15/mac_de_hugo_and_githubpages/</link>
+      <pubDate>Wed, 15 Jul 2015 22:08:20 +0900</pubDate>
+      
+      <guid>http://localhost:1313/2015/07/15/mac_de_hugo_and_githubpages/</guid>
+      <description>
+
+&lt;h5 id=&#34;思い立った:eefd8740273093ce7957e5fe196ca240&#34;&gt;思い立った&lt;/h5&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;昔作ったgithubのアカウントを掘り出したのをきっかけに、&lt;br /&gt;
+環境構築手順でもブログ形式で残しておきたいなあと思い立った私はブログを作成したんです(錯乱&lt;/p&gt;
+
+&lt;h5 id=&#34;なるべく楽して作りたい:eefd8740273093ce7957e5fe196ca240&#34;&gt;なるべく楽して作りたい&lt;/h5&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;面倒くさがりなので(なるべく)1クリックで作りたい、出来ればgithubで記事を管理したい。。。。&lt;br /&gt;
+そんな思いから「github　ブログ」と安直にぐぐったところ選択肢が幾つか出て来た。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Jekyll&lt;/li&gt;
+&lt;li&gt;hugo&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;この二つが目についたので調べてみる。&lt;br /&gt;
+そしてhugoはGO言語で速くて構築が簡単でマークダウン言語でさくさく記事が書けて素晴らしいよ！！(曲解)&lt;br /&gt;
+を信じてぼちぼち導入することにしました。&lt;/p&gt;
+
+&lt;h5 id=&#34;前提として:eefd8740273093ce7957e5fe196ca240&#34;&gt;前提として&lt;/h5&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;git部分はあまり詳しく説明しないので、この程度は出来る方向けです。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;githubアカウントを持ってる&lt;/li&gt;
+&lt;li&gt;リポジトリ作成、コミット、プッシュ程度は出来る&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&#34;hugoのインストール:eefd8740273093ce7957e5fe196ca240&#34;&gt;hugoのインストール&lt;/h5&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;早速インストールコマンドをぶち込む。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$brew install hugo
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;(´･ω･`)ひゅー！！めっちゃらくう！！！ぶりゅーさまさまだぜ！！！&lt;br /&gt;
+ちゃんとインストール出来たかをチェック&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$hugo version
+Hugo Static Site Generator v0.14 BuildDate: 2015-06-17T05:43:06+09:00
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;いいいいいいいいいえす素晴らしい。&lt;br /&gt;
+何故インストールってのはこんなにも胸ときめくのか。&lt;/p&gt;
+
+&lt;h5 id=&#34;新しいブログを作ろう:eefd8740273093ce7957e5fe196ca240&#34;&gt;新しいブログを作ろう&lt;/h5&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;適当なディレクトリに移動して、hugoブログを新規作成する。&lt;br /&gt;
+私は ~/work 配下を作業領域としているのでそこで実行してみた。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$hugo new site &amp;lt;site name&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;これで &lt;site name&gt; ディレクトリが作成された筈。&lt;br /&gt;
+早速潜って内容を確認する。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$cd &amp;lt;site name&amp;gt;
+$ls -l
+# archetypes、config.toml、content、data、layouts、static が入っている筈
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5 id=&#34;テーマが割と揃ってる:eefd8740273093ce7957e5fe196ca240&#34;&gt;テーマが割と揃ってる&lt;/h5&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;hugoはテーマを指定しなければindex.html(後述のコマンドで生成する)が真っ白になるので必ず指定してあげる。&lt;br /&gt;
+勿論webデザインに自信があるなら自作しても良いのだけれど、hugoはそこそこテーマが揃っているのでまずはそこから選んでみる。&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/spf13/hugoThemes/&#34;&gt;ここ&lt;/a&gt;にテーマカタログがあるので好みのものを選ぼう。&lt;/li&gt;
+&lt;li&gt;私は割と下の方にある&lt;a href=&#34;https://github.com/pdevty/material-design&#34;&gt;material-design&lt;/a&gt;を選択。このブログもこのデザイン。&lt;/li&gt;
+&lt;li&gt;テーマのリポジトリページに遷移するので右っかわにある &lt;strong&gt;HTTPS clone URL&lt;/strong&gt; てのをコピーする。&lt;/li&gt;
+&lt;li&gt;&lt;site name&gt;ルートディレクトリ直下に themes ディレクトリを作りその中で上記リポジトリをcloneする。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;実際には以下の通りコマンドを投入してみた。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$cd &amp;lt;site name&amp;gt;
+$mkdir themes
+$cd themes
+$git clone &amp;lt;コピーしたHTTPS clone URL&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;themesディレクトリ配下に選んだテーマ名のディレクトリが作成されていたら成功だ。&lt;br /&gt;
+このthemesディレクトリにはいくらでもテーマを保管しておいて構わないし、テーマの変更もコマンド一行で済んでしまうので気になるものや迷っているものがあったら入れておいてもいいと思う。&lt;/p&gt;
+
+&lt;h5 id=&#34;一瞬でブログのプレビューが出来る:eefd8740273093ce7957e5fe196ca240&#34;&gt;一瞬でブログのプレビューが出来る&lt;/h5&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;恐らくhugoの便利なところの一つだけれど、コマンド一つで一瞬でブログを確認することが出来る。&lt;br /&gt;
+勿論ローカルで。&lt;/p&gt;
+
+&lt;p&gt;&lt;site name&gt;ディレクトリ配下で以下のコマンドを実行してみる。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$hugo server -t &amp;lt;さっき選んだテーマ名&amp;gt;
+0 of 2 drafts rendered
+0 future content 
+0 pages created
+0 paginator pages created
+0 tags created
+0 categories created
+in 30 ms
+Serving pages from &amp;lt;site name&amp;gt;/public
+Web Server is available at http://127.0.0.1:1313/
+Press Ctrl+C to stop
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;こんな感じの結果が出ると思う。&lt;br /&gt;
+こいつが言ってることはつまり、、、、&lt;/p&gt;
+
+&lt;p&gt;(´･ω･`)指定されたテーマが適用された public ディレクトリを作ってやったよ！！&lt;/p&gt;
+
+&lt;p&gt;(´･ω･`)ついでにローカルホストの1313ってとこで確認出来るようにしてやったから見てみな！！！！&lt;/p&gt;
+
+&lt;p&gt;ってことなんだ。&lt;br /&gt;
+早速 &lt;a href=&#34;http://127.0.0.1:1313/&#34;&gt;http://127.0.0.1:1313/&lt;/a&gt; に、レッツアクセス。&lt;br /&gt;
+勿論 &lt;a href=&#34;http://localhost:1313/&#34;&gt;http://localhost:1313/&lt;/a&gt; このURLからでも同じだ。&lt;/p&gt;
+
+&lt;p&gt;テーマカタログで選んだテーマがそのまま、(記事は0件だが)表示されているはず。&lt;/p&gt;
+
+&lt;p&gt;先にも話したが、ここでテーマを指定していないと(つまり hugo server のみでコマンドを叩くと)&lt;br /&gt;
+public/index.htmlが空で生成されてしまうので注意だ。&lt;br /&gt;
+(※つまり私がかなりハマったってことなんだ。。。。。)&lt;/p&gt;
+
+&lt;h5 id=&#34;記事を作る:eefd8740273093ce7957e5fe196ca240&#34;&gt;記事を作る&lt;/h5&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;いよいよ記事を作るのでここでもhugoコマンドのお世話になる。&lt;br /&gt;
+本当至れり尽くせりだなあと思うんだ。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$hugo new post/first.md
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;を実行してみると、空っぽの筈だったcontent/配下に post/first.md が生成される。&lt;br /&gt;
+ブログ記事は今後ここに溜まっていくことになる。&lt;br /&gt;
+このファイルに記述するのはマークダウン言語ってものなんだけど、それがなんぞやとか記述方法とかは別途調べてほしいな。&lt;/p&gt;
+
+&lt;p&gt;生成されたfirst.mdファイルを確認すると、以下のようなないようになっている。&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

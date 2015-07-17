@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>2015_07s on zzz...</title>
+    <link>http://localhost:1313/2015_07/</link>
+    <description>Recent content in 2015_07s on zzz...</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <copyright>© 2015 Copyright Text</copyright>
+    <lastBuildDate>Thu, 16 Jul 2015 10:13:50 +0900</lastBuildDate>
+    <atom:link href="http://localhost:1313/2015_07/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>MacにEclipseMarsをインストール&amp;日本語化まで</title>
+      <link>http://localhost:1313/2015_07/mac_de_eclipse_mars/</link>
+      <pubDate>Thu, 16 Jul 2015 10:13:50 +0900</pubDate>
+      
+      <guid>http://localhost:1313/2015_07/mac_de_eclipse_mars/</guid>
+      <description>
+
+&lt;h1 id=&#34;eclipseのインストール:bffa58b3f27ecffd6e173ad018b41626&#34;&gt;Eclipseのインストール&lt;/h1&gt;
+
+&lt;p&gt;[このページ]&lt;a href=&#34;https://eclipse.org/downloads/&#34;&gt;https://eclipse.org/downloads/&lt;/a&gt;から好みのeclipseインストーラをダウンロードする。&lt;br /&gt;
+私はStrutsの勉強をするため、一番上の&lt;br /&gt;
+Eclipse IDE for Java EE Developers&lt;br /&gt;
+を選択した。&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

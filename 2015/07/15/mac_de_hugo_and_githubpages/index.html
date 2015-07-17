@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+  <title>Hugo&#43;GithubPagesなブログをmacで構築してみた</title>
+  <link href="http://localhost:1313//css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="http://localhost:1313//css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/default.min.css">
+  <style type="text/css">
+  
+    footer.page-footer{background-image: url(http://localhost:1313//images/headerCover.png);}
+  
+  </style>
+</head>
+<body>
+  <ul id="slide-out" class="side-nav">
+    <li><a href="http://localhost:1313/"><i class="mdi-action-home left"></i>Home<i class="mdi-hardware-keyboard-arrow-right right"></i></a></li>
+    <li><a href="http://localhost:1313//categories"><i class="mdi-action-perm-media left"></i>Categories<i class="mdi-hardware-keyboard-arrow-right right"></i></a></li>
+    <li><a href="http://localhost:1313//tags"><i class="mdi-action-loyalty left"></i>Tags<i class="mdi-hardware-keyboard-arrow-right right"></i></a></li>
+  </ul>
+  <div id="index-banner" class="parallax-container">
+  <a data-activates="slide-out" class="btn-floating button-collapse" style="top: 5px; left: 5px;"><i class="mdi-navigation-menu"></i></a>
+    <div class="section no-pad-bot">
+      <div class="container">
+        
+        <h1 class="header center teal-text text-lighten-2">Zzz...</h1>
+        <div class="row center">
+          <h5 class="header col s12 light">IT業界の隅っこで居眠りしてるエンジニアの寝言と趣味のこと</h5>
+        </div>
+        <div class="row center">
+        
+          <a href="https://github.com/nimorian"><img src="http://localhost:1313//images/github2-dreamstale35.png"></a>
+        
+        
+        
+        
+        
+          <a href="http://localhost:1313//index.xml"><img src="http://localhost:1313//images/feed-dreamstale27.png"></a>
+        </div>
+      </div>
+    </div>
+    <div class="parallax">
+    
+      <img src="http://localhost:1313//images/headerCover.png">
+    
+    </div>
+  </div>
+
+
+
+<div class="container">
+  <div class="section">
+
+    <div class="row">
+      <div class="col s12">
+        <div class="card-panel">
+          <h4>Hugo&#43;GithubPagesなブログをmacで構築してみた</h4>
+          <p>
+           
+          </p>
+          <p>
+
+<h5 id="思い立った:eefd8740273093ce7957e5fe196ca240">思い立った</h5>
+
+<hr />
+
+<p>昔作ったgithubのアカウントを掘り出したのをきっかけに、<br />
+環境構築手順でもブログ形式で残しておきたいなあと思い立った私はブログを作成したんです(錯乱</p>
+
+<h5 id="なるべく楽して作りたい:eefd8740273093ce7957e5fe196ca240">なるべく楽して作りたい</h5>
+
+<hr />
+
+<p>面倒くさがりなので(なるべく)1クリックで作りたい、出来ればgithubで記事を管理したい。。。。<br />
+そんな思いから「github　ブログ」と安直にぐぐったところ選択肢が幾つか出て来た。</p>
+
+<ul>
+<li>Jekyll</li>
+<li>hugo</li>
+</ul>
+
+<p>この二つが目についたので調べてみる。<br />
+そしてhugoはGO言語で速くて構築が簡単でマークダウン言語でさくさく記事が書けて素晴らしいよ！！(曲解)<br />
+を信じてぼちぼち導入することにしました。</p>
+
+<h5 id="前提として:eefd8740273093ce7957e5fe196ca240">前提として</h5>
+
+<hr />
+
+<p>git部分はあまり詳しく説明しないので、この程度は出来る方向けです。</p>
+
+<ul>
+<li>githubアカウントを持ってる</li>
+<li>リポジトリ作成、コミット、プッシュ程度は出来る</li>
+</ul>
+
+<h5 id="hugoのインストール:eefd8740273093ce7957e5fe196ca240">hugoのインストール</h5>
+
+<hr />
+
+<p>早速インストールコマンドをぶち込む。</p>
+
+<pre><code>$brew install hugo
+</code></pre>
+
+<p>(´･ω･`)ひゅー！！めっちゃらくう！！！ぶりゅーさまさまだぜ！！！<br />
+ちゃんとインストール出来たかをチェック</p>
+
+<pre><code>$hugo version
+Hugo Static Site Generator v0.14 BuildDate: 2015-06-17T05:43:06+09:00
+</code></pre>
+
+<p>いいいいいいいいいえす素晴らしい。<br />
+何故インストールってのはこんなにも胸ときめくのか。</p>
+
+<h5 id="新しいブログを作ろう:eefd8740273093ce7957e5fe196ca240">新しいブログを作ろう</h5>
+
+<hr />
+
+<p>適当なディレクトリに移動して、hugoブログを新規作成する。<br />
+私は ~/work 配下を作業領域としているのでそこで実行してみた。</p>
+
+<pre><code>$hugo new site &lt;site name&gt;
+</code></pre>
+
+<p>これで <site name> ディレクトリが作成された筈。<br />
+早速潜って内容を確認する。</p>
+
+<pre><code>$cd &lt;site name&gt;
+$ls -l
+# archetypes、config.toml、content、data、layouts、static が入っている筈
+</code></pre>
+
+<h5 id="テーマが割と揃ってる:eefd8740273093ce7957e5fe196ca240">テーマが割と揃ってる</h5>
+
+<hr />
+
+<p>hugoはテーマを指定しなければindex.html(後述のコマンドで生成する)が真っ白になるので必ず指定してあげる。<br />
+勿論webデザインに自信があるなら自作しても良いのだけれど、hugoはそこそこテーマが揃っているのでまずはそこから選んでみる。</p>
+
+<ol>
+<li><a href="https://github.com/spf13/hugoThemes/">ここ</a>にテーマカタログがあるので好みのものを選ぼう。</li>
+<li>私は割と下の方にある<a href="https://github.com/pdevty/material-design">material-design</a>を選択。このブログもこのデザイン。</li>
+<li>テーマのリポジトリページに遷移するので右っかわにある <strong>HTTPS clone URL</strong> てのをコピーする。</li>
+<li><site name>ルートディレクトリ直下に themes ディレクトリを作りその中で上記リポジトリをcloneする。</li>
+</ol>
+
+<p>実際には以下の通りコマンドを投入してみた。</p>
+
+<pre><code>$cd &lt;site name&gt;
+$mkdir themes
+$cd themes
+$git clone &lt;コピーしたHTTPS clone URL&gt;
+</code></pre>
+
+<p>themesディレクトリ配下に選んだテーマ名のディレクトリが作成されていたら成功だ。<br />
+このthemesディレクトリにはいくらでもテーマを保管しておいて構わないし、テーマの変更もコマンド一行で済んでしまうので気になるものや迷っているものがあったら入れておいてもいいと思う。</p>
+
+<h5 id="一瞬でブログのプレビューが出来る:eefd8740273093ce7957e5fe196ca240">一瞬でブログのプレビューが出来る</h5>
+
+<hr />
+
+<p>恐らくhugoの便利なところの一つだけれど、コマンド一つで一瞬でブログを確認することが出来る。<br />
+勿論ローカルで。</p>
+
+<p><site name>ディレクトリ配下で以下のコマンドを実行してみる。</p>
+
+<pre><code>$hugo server -t &lt;さっき選んだテーマ名&gt;
+0 of 2 drafts rendered
+0 future content 
+0 pages created
+0 paginator pages created
+0 tags created
+0 categories created
+in 30 ms
+Serving pages from &lt;site name&gt;/public
+Web Server is available at http://127.0.0.1:1313/
+Press Ctrl+C to stop
+</code></pre>
+
+<p>こんな感じの結果が出ると思う。<br />
+こいつが言ってることはつまり、、、、</p>
+
+<p>(´･ω･`)指定されたテーマが適用された public ディレクトリを作ってやったよ！！</p>
+
+<p>(´･ω･`)ついでにローカルホストの1313ってとこで確認出来るようにしてやったから見てみな！！！！</p>
+
+<p>ってことなんだ。<br />
+早速 <a href="http://127.0.0.1:1313/">http://127.0.0.1:1313/</a> に、レッツアクセス。<br />
+勿論 <a href="http://localhost:1313/">http://localhost:1313/</a> このURLからでも同じだ。</p>
+
+<p>テーマカタログで選んだテーマがそのまま、(記事は0件だが)表示されているはず。</p>
+
+<p>先にも話したが、ここでテーマを指定していないと(つまり hugo server のみでコマンドを叩くと)<br />
+public/index.htmlが空で生成されてしまうので注意だ。<br />
+(※つまり私がかなりハマったってことなんだ。。。。。)</p>
+
+<h5 id="記事を作る:eefd8740273093ce7957e5fe196ca240">記事を作る</h5>
+
+<hr />
+
+<p>いよいよ記事を作るのでここでもhugoコマンドのお世話になる。<br />
+本当至れり尽くせりだなあと思うんだ。</p>
+
+<pre><code>$hugo new post/first.md
+</code></pre>
+
+<p>を実行してみると、空っぽの筈だったcontent/配下に post/first.md が生成される。<br />
+ブログ記事は今後ここに溜まっていくことになる。<br />
+このファイルに記述するのはマークダウン言語ってものなんだけど、それがなんぞやとか記述方法とかは別途調べてほしいな。</p>
+
+<p>生成されたfirst.mdファイルを確認すると、以下のようなないようになっている。</p>
+</p>
+          <p>15 Jul 2015
+            
+              
+                <a href="http://localhost:1313//tags/github/">#github</a>
+              
+                <a href="http://localhost:1313//tags/hugo/">#hugo</a>
+              
+            
+          </p>
+          
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col s3 m1">
+      
+        <a class="btn-floating btn-large waves-effect waves-light" href="http://localhost:1313/2015/07/16/mac_de_eclipse_mars/"><i class="mdi-navigation-arrow-back"></i></a>
+      
+      </div>
+      <div class="col s6 m10 center">&nbsp</div>
+      <div class="col s3 m1">
+      
+        <a class="btn-floating btn-large disabled"><i class="mdi-navigation-arrow-forward"></i></a>
+      
+      </div>
+    </div>
+
+  </div>
+</div>
+
+  <footer class="page-footer">
+    <div class="footer-copyright">
+      <div class="container">
+      © 2015 Copyright Text
+      <div class="right">Design <a class="grey-text text-lighten-4" href="http://pdevty.github.io/blog/">pdevty</a></div>
+      </div>
+    </div>
+  </footer>
+  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <script src="http://localhost:1313//js/materialize.min.js"></script>
+  <script src="http://localhost:1313//js/init.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <script data-no-instant>document.write('<script src="http://'
+        + (location.host || 'localhost').split(':')[0]
+		+ ':1313/livereload.js?mindelay=10"></'
+        + 'script>')</script></body>
+</html>
+
